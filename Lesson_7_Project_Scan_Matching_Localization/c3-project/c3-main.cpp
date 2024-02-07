@@ -101,8 +101,6 @@ void drawCar(Pose pose, int num, Color color, double alpha, pcl::visualization::
 
 Eigen::Matrix4d ICP(PointCloudT::Ptr target, PointCloudT::Ptr source, Pose startingPose, int iterations){
 
-    Eigen::Matrix4d transformation_matrix = Eigen::Matrix4d::Identity ();
-
     // Defining a rotation matrix and translation vector
     Eigen::Matrix4d transformation_matrix = Eigen::Matrix4d::Identity ();
 
