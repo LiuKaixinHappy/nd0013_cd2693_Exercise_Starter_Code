@@ -149,8 +149,6 @@ Eigen::Matrix4d ICP(PointCloudT::Ptr target, PointCloudT::Ptr source, Pose start
         cout << "WARNING: ICP did not converge" << endl;
     return transformation_matrix;
 
-    return transformation_matrix;
-
 }
 
 int main(){
@@ -256,7 +254,7 @@ int main(){
 			new_scan = true;
 			// TODO: (Filter scan using voxel filter)
             pcl::VoxelGrid<PointT> vg;
-            vg.setInputCloud(scanCloud);
+            vg.setInputCloud(transformed_scan);
             double filterRes = 0.5;
             vg.setLeafSize(filterRes, filterRes, filterRes);
             vg.filter(*cloudFiltered);
