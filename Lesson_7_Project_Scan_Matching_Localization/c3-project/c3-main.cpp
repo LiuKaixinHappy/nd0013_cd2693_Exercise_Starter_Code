@@ -285,7 +285,7 @@ int main(){
 			new_scan = true;
 			// TODO: (Filter scan using voxel filter)
             pcl::VoxelGrid<PointT> vg;
-            vg.setInputCloud(scanCloud);
+            vg.setInputCloud(cloudFiltered);
             double filterRes = 10;
             vg.setLeafSize(filterRes, filterRes, filterRes);
             vg.filter(*cloudFiltered);
