@@ -286,12 +286,12 @@ int main(){
 			// TODO: (Filter scan using voxel filter)
             pcl::VoxelGrid<PointT> vg;
             vg.setInputCloud(scanCloud);
-            double filterRes = 20;
+            double filterRes = 22;
             vg.setLeafSize(filterRes, filterRes, filterRes);
             vg.filter(*cloudFiltered);
 			// TODO: Find pose transform by using ICP or NDT matching
 //			Eigen::Matrix4d eigen_transform = NDT(ndt, cloudFiltered, pose, 300);
-            Eigen::Matrix4d eigen_transform = ICP(mapCloud, cloudFiltered, truePose, 500);
+            Eigen::Matrix4d eigen_transform = ICP(mapCloud, cloudFiltered, truePose, 800);
 			pose = getPose(eigen_transform);
 
 			// TODO: Transform scan so it aligns with ego's actual pose and render that scan
